@@ -1,0 +1,53 @@
+<div class="pt-5">
+    <img class="imagenBanners" src="../assets/banner1.jpg" alt="">
+</div>
+
+<div class="album py-5">
+    <div class="container">
+      <!-- <div class="row">
+        <div class="col">
+          <p class="text-center">My Collection</p>
+        </div>
+      </div> -->
+  
+      <div class="row">
+        <div
+          class="col-md-4"
+          *ngFor="let item of data | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+          <div class="card mb-4 box-shadow">
+            <img
+              class="card-img-top"
+              src="img/thumbnail.png"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <p class="card-text">Este es el nombre del juego.</p>
+              <p class="card-text">{{item.id}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">
+                    Ver más
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [pageSize]="15"
+        [collectionSize]="100"
+        [(page)]="page"
+        aria-label="Default pagination"
+      ></ngb-pagination>
+
+  </div>
+
+  
+ 
+  <pre>Current page: {{page}}</pre>
