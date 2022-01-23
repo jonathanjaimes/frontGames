@@ -7,14 +7,9 @@
             <div></div>
             <div  class="d-flex justify-content-center justify-content-sm-end contenedor-buscar-sesion">
                 <button [routerLink]="['/loginIngresar']" class="MRboton btn btn-primary">INICIAR SESIÓN</button>
-                <form [formGroup]="buscarPalabra" (submit)="buscar()">
-                    <div class="contenedor-form">
-                        <input  type="text" placeholder="Ingresa el término" formControlName="buscar">
-                        <button class="btn btn-primary boton-buscar">Buscar</button>
 
-                    </div>
-                </form>
-                
+                <button [routerLink]="['/login']" class="MRboton btn btn-primary">REGISTRAR</button>
+                                
             </div>
             
             

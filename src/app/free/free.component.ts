@@ -11,7 +11,7 @@ export class FreeComponent implements OnInit {
   pageSize = 15;
   page = 4;
 
-  constructor(private servicio:GamesService) { this.iterar()}
+  constructor(private servicio:GamesService) { }
 
   ngOnInit(): void {
     
@@ -24,11 +24,6 @@ export class FreeComponent implements OnInit {
     return this.servicio.free2
   }
 
-  iterar(){
-    for (let value of this.listadoFree)
-      console.log(value[0].appid)
-
-  }
 
 
 
