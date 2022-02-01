@@ -19,11 +19,12 @@ export class LoginComponent implements OnInit {
     usuario: [""],
     email: [""],
     clave: [""],
+    suscrito: false
 
   })
 
   datosLogin:any = {}
-  datosLoginJSON:ILogin | string ={"nombre": "", "usuario": "", "email": "", "clave": ""}
+  datosLoginJSON:ILogin | string ={"nombre": "", "usuario": "", "email": "", "clave": "", "suscrito": ""}
 
   registrar(){
     this.datosLogin = this.registerForm.value;

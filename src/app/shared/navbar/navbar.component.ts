@@ -18,10 +18,10 @@ export class NavbarComponent implements OnInit {
   
   terminoBusqueda:string = ""
   
-  get listado() { //Mediante el get podemos acceder a la variable games que está en el servicio
-    //tener en cuenta que el subscribe está en el mismo servicio
-    return this.servicio.games
-  }
+  // get listado() { //Mediante el get podemos acceder a la variable games que está en el servicio
+  //   //tener en cuenta que el subscribe está en el mismo servicio
+  //   return this.servicio.games
+  // }
   
 
   // games:IGame[] = this.servicio.
@@ -61,7 +61,7 @@ export class NavbarComponent implements OnInit {
 
     // let fruits = [this.listado[0].name, this.listado[1].name, this.listado[2].name, this.listado[3].name, this.listado[4].name];
 
-    let nuevoArray = Object.entries(this.listado)
+    // let nuevoArray = Object.entries(this.listado)
 
     // console.log(typeof(this.buscarPalabra.value))
     // console.log(this.listado[0].name)

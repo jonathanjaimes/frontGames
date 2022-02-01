@@ -1,27 +1,28 @@
-<div class="top">
-    
-</div>
-<div class="container px-5">
-    <div class="row " >
-        <div class="col my-4 d-flex justify-content-center justify-content-sm-end contenedor-top">
-            <div></div>
-            <div  class="d-flex justify-content-center justify-content-sm-end contenedor-buscar-sesion">
-                <button [routerLink]="['/loginIngresar']" class="MRboton btn btn-primary">INICIAR SESIÓN</button>
 
-                <button [routerLink]="['/login']" class="MRboton btn btn-primary">REGISTRAR</button>
-                                
-            </div>
-            
-            
-        </div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <div class="nav-link active" aria-current="page" [routerLink]="['']">Inicio</div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">Ofertas</div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">Juegos gratis</div>
+            </li>
+            <li class="nav-item" [routerLink]="['/login']">
+                <button class="btn btn-primary mt-2 mt-lg-0 ms-lg-3">Registrarse</button>
+            </li>
+            <li class="nav-item"  [routerLink]="['/loginIngresar']">
+                <button class="btn btn-secondary mt-3 mt-lg-0 mx-lg-2">Login</button>
+            </li>
+        </ul>
     </div>
-</div>
-<div class="container my-4">
-    <div class="row">
-        <div class="col d-flex justify-content-evenly contenedor-botones">
-            <button class="btn btn-dark boton-menu">MÁS RECIENTES</button>
-            <button class="btn btn-dark boton-menu">OFERTAS</button>
-            <button class="btn btn-dark boton-menu">COLECCIONES</button>
-        </div>
     </div>
-</div>
+</nav>

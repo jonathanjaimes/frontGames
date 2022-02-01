@@ -46,6 +46,10 @@
     height: auto;
 }
 
+.primerBanner {
+    margin-top: 55px;
+}
+
 .top {
     height: 50px;
     background-color: #000;
@@ -135,6 +139,9 @@
     }
 }
 
+.sr-only {
+    display: none;
+}
 
 //###############################################
 /* Importing Bootstrap SCSS file. */

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 import { IGame } from '../interfaces/igame.interface';
 import { IGameFree } from '../interfaces/igamefree.interface';
 
@@ -15,51 +15,58 @@ export class GamesService {
 
   apiUrlFree = "http://localhost:4000/offers/freeToPlay"
 
-  games:IGame[] = []
+  apiUrlOfertasAnteriores = "http://localhost:4000/offers/newgames"
 
-  gamesFree:IGameFree[] = []
+  apiUrlEnviarLista = "http://localhost:4000/offers"
 
-  hayError:boolean = false;
-  free2:any[] = []
+  apiUrlEnviarNuevos = "http://localhost:4000/alert?game="
+
+  // games:IGame[] = []
+
+  // freeToGame:any = []
+  // epicGames:any = []
+
+  // gamesFree:IGameFree[] = []
+
+  // hayError:boolean = false;
+
 
 
   traerJuegos():any {
     const token = localStorage.getItem("token") || ''
     const headers = new HttpHeaders().set('Content-Type', 'application/json').set('x-token', token);
-    this.http.get<IGame>(this.apiUrl, {headers}).subscribe({
-      next: (resp:any) => {
-        this.games = resp;
-        console.log(this.games)
-        // console.log(this.hayError)
-      },
-      error: (err:any) => {
-        this.hayError = true;
-        console.log(this.hayError)
-      }
-    })
+    return lastValueFrom(this.http.get<IGame>(this.apiUrl, {headers}))
 
     };
 
     traerJuegosFree():any {
 
       const token = localStorage.getItem("token") || ''
-
       const headers = new HttpHeaders().set('Content-Type', 'application/json').set('x-token', token);
-      this.http.get<IGameFree>(this.apiUrlFree, { headers }).subscribe({
-        next: (resp:any) => {
-          this.gamesFree = resp;
-          this.free2 = Object.entries(this.gamesFree)
-
-          console.log(this.gamesFree)
-          // console.log(this.hayError)
-        },
-        error: (err:any) => {
-          this.hayError = true;
-          console.log(this.hayError)
-        }
-      })
+      return lastValueFrom(this.http.get<IGameFree>(this.apiUrlFree, { headers }));
     }
 
+    
+    enviarJuegosAnteriores(body:any):any {
+      const headers = {'Content-Type': 'application/json'};
+      return lastValueFrom(this.http.post(this.apiUrlEnviarLista, body, { headers }))
+  
+      };
+
+
+      enviarNuevos(nombreJuego:string):any {
+        const headers = {'Content-Type': 'application/json'};
+        return lastValueFrom(this.http.get(`${this.apiUrlEnviarNuevos} ${nombreJuego}`, { headers }))
+    
+        };
+
+
+    traerOfertasAnteriores():any {
+      const token = localStorage.getItem("token") || ''
+      const headers = new HttpHeaders().set('Content-Type', 'application/json').set('x-token', token);
+      return lastValueFrom(this.http.get(this.apiUrlOfertasAnteriores, { headers }))
+
+    }
 
 
 

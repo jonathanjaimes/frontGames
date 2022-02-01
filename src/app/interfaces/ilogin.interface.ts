@@ -3,4 +3,5 @@ export interface ILogin {
     usuario: string;
     email:   string;
     clave:   string;
+    suscrito:   string;
 }
